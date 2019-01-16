@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/operators';
+import { log } from './utils/operators';
 
 export class BaseService {
 
@@ -12,6 +13,7 @@ export class BaseService {
     return this.http
       .get<T>(url, { observe: 'response' })
       .pipe(
+        log(),
         map(
           (response) => {
             // TODO handle different statuses
