@@ -1,0 +1,6 @@
+<app-list [listRef]="productsListRef"></app-list>
+
+<ng-template #productsListRef let-product="datas">
+  <app-item *ngFor="let product of products" [product]="product"></app-item>
+</ng-template>
+

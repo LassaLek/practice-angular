@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductsService } from './products/products.service';
-import { ProductModel } from './model/ProductModel';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +7,5 @@ import { ProductModel } from './model/ProductModel';
 })
 export class AppComponent {
   title = 'practice-app';
+
 }
