@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-
-/*MOCK API*/
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemProductService } from '../../mock/InMemoryProductService';
 import { ProductsModule } from './products/products.module';
+import { AppRoutingModule } from './app-routing.module';
+import { DragAndDropModule } from './drag-and-drop/drag-and-drop.module';
 
 @NgModule({
   declarations: [
@@ -16,12 +16,18 @@ import { ProductsModule } from './products/products.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ProductsModule,
+
+    AppRoutingModule,
 
     /*MOCK API*/
-    HttpClientInMemoryWebApiModule.forRoot(InMemProductService, { delay: 200 })
+    HttpClientInMemoryWebApiModule.forRoot(InMemProductService, {delay: 200}),
+
+    // Features
+    ProductsModule,
+    DragAndDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
