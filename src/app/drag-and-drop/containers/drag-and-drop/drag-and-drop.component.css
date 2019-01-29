@@ -1,0 +1,20 @@
+div {
+  height: 100px;
+  width: 100px;
+  border: 1px solid red;
+}
+
+.handle {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+}
+
+section section {
+  width: 50%;
+  float: left;
+}
+

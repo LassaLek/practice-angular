@@ -1,3 +1,54 @@
-<p>
-  drag-and-drop works!
-</p>
+<div cdkDrag>
+  I'm Draggable
+</div>
+
+<hr/>
+
+<div cdkDrag cdkDragLockAxis="x">
+  I am Draggable - horizontally
+</div>
+
+<hr/>
+
+<div cdkDrag>
+  <div cdkDragHandle class="handle"></div>
+  I am Draggable - with handle
+</div>
+
+<hr/>
+
+<cdk-drop-list (cdkDropListDropped)="onDrop($event)">
+  <div *ngFor="let item of items" cdkDrag>{{item}}</div>
+</cdk-drop-list>
+
+<hr/>
+<section>
+  <section>
+    <h2>First list - can not drag back</h2>
+    <cdk-drop-list
+      #list2="cdkDropList"
+      (cdkDropListDropped)="addToList($event)"
+      [cdkDropListConnectedTo]="[list3]"
+      [cdkDropListData]="items2"
+      [cdkDropListEnterPredicate]="isAllowed" >
+      <div *ngFor="let item of items2" cdkDrag> {{item}}
+        <div *cdkDragPlaceholder>This is PLACEHOLDER</div>
+      </div>
+    </cdk-drop-list>
+  </section>
+  <section>
+    <h2>Second list</h2>
+    <cdk-drop-list
+      #list3="cdkDropList"
+      (cdkDropListDropped)="addToList($event)"
+      [cdkDropListConnectedTo]="[list2]"
+      [cdkDropListData]="items3">
+      <div *ngFor="let item of items3" cdkDrag> {{item}}
+        <div *cdkDragPreview>This is PREVIEW</div></div>
+    </cdk-drop-list>
+  </section>
+</section>
+
+
+
+
