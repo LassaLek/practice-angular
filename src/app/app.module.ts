@@ -8,6 +8,7 @@ import { InMemProductService } from '../../mock/InMemoryProductService';
 import { ProductsModule } from './products/products.module';
 import { AppRoutingModule } from './app-routing.module';
 import { DragAndDropModule } from './drag-and-drop/drag-and-drop.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,8 +16,8 @@ import { DragAndDropModule } from './drag-and-drop/drag-and-drop.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-
     AppRoutingModule,
 
     /*MOCK API*/

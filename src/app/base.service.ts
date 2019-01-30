@@ -11,7 +11,7 @@ export class BaseService {
 
   protected baseGetRequest<T>(url: string): Observable<T> {
     return this.http
-      .get<T>(url, { observe: 'response' })
+      .get<T>(url, {observe: 'response'})
       .pipe(
         log(),
         map(

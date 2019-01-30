@@ -8,9 +8,9 @@ describe('DragAndDropComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DragAndDropComponent ]
+      declarations: [DragAndDropComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -4,8 +4,8 @@ import { ProductsListComponent } from './products/containers/products-list/produ
 import { DragAndDropComponent } from './drag-and-drop/containers/drag-and-drop/drag-and-drop.component';
 
 const routes: Routes = [
-  { path: 'products', component: ProductsListComponent },
-  { path: 'drag-and-drop', component: DragAndDropComponent }
+  {path: 'products', component: ProductsListComponent},
+  {path: 'drag-and-drop', component: DragAndDropComponent}
 ];
 
 @NgModule({
@@ -16,4 +16,5 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

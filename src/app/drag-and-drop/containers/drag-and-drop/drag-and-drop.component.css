@@ -13,8 +13,12 @@ div {
   background-color: red;
 }
 
-section section {
+.column-section {
   width: 50%;
   float: left;
+}
+
+mat-tab {
+  margin-top: 20px;
 }
 

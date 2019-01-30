@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CdkDrag, CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-drag-and-drop',
@@ -8,16 +8,17 @@ import { CdkDrag, CdkDragDrop, moveItemInArray, transferArrayItem } from '@angul
 })
 export class DragAndDropComponent {
 
-  items = ['Zero', 'One', 'Two', 'Three'];
-  items2 = ['Zero', 'One', 'Two', 'Three'];
-  items3 = ['Eleven'];
+  items: string[] = ['Zero', 'One', 'Two', 'Three'];
+  items2: string[] = ['Zero', 'One', 'Two', 'Three'];
+  items3: string[] = ['Eleven'];
 
-  onDrop(event: CdkDragDrop<string[]>) {
+
+  public onDrop(event: CdkDragDrop<string[]>): void {
     console.log('onDrop: ', event);
     moveItemInArray(this.items, event.previousIndex, event.currentIndex);
   }
 
-  addToList(event: CdkDragDrop<string[]>) {
+  public addToList(event: CdkDragDrop<string[]>): void {
     console.log('addToList: ', event);
     if (event.previousContainer === event.container) {
       console.log('moveItemInArray');
@@ -38,7 +39,7 @@ export class DragAndDropComponent {
 
   }
 
-  isAllowed() {
+  public isAllowed(): boolean {
     return false;
   }
 

@@ -1,54 +1,61 @@
-<div cdkDrag>
-  I'm Draggable
-</div>
-
-<hr/>
-
-<div cdkDrag cdkDragLockAxis="x">
-  I am Draggable - horizontally
-</div>
-
-<hr/>
-
-<div cdkDrag>
-  <div cdkDragHandle class="handle"></div>
-  I am Draggable - with handle
-</div>
-
-<hr/>
-
-<cdk-drop-list (cdkDropListDropped)="onDrop($event)">
-  <div *ngFor="let item of items" cdkDrag>{{item}}</div>
-</cdk-drop-list>
-
-<hr/>
-<section>
-  <section>
-    <h2>First list - can not drag back</h2>
-    <cdk-drop-list
-      #list2="cdkDropList"
-      (cdkDropListDropped)="addToList($event)"
-      [cdkDropListConnectedTo]="[list3]"
-      [cdkDropListData]="items2"
-      [cdkDropListEnterPredicate]="isAllowed" >
-      <div *ngFor="let item of items2" cdkDrag> {{item}}
-        <div *cdkDragPlaceholder>This is PLACEHOLDER</div>
-      </div>
-    </cdk-drop-list>
-  </section>
-  <section>
-    <h2>Second list</h2>
-    <cdk-drop-list
-      #list3="cdkDropList"
-      (cdkDropListDropped)="addToList($event)"
-      [cdkDropListConnectedTo]="[list2]"
-      [cdkDropListData]="items3">
-      <div *ngFor="let item of items3" cdkDrag> {{item}}
-        <div *cdkDragPreview>This is PREVIEW</div></div>
-    </cdk-drop-list>
-  </section>
-</section>
-
-
-
-
+<mat-tab-group>
+  <mat-tab label="drag">
+    <div
+      cdkDrag>
+      I'm Draggable
+    </div>
+  </mat-tab>
+  <mat-tab label="horizontal">
+    <div
+      cdkDrag
+      cdkDragLockAxis="x">
+      I am Draggable - horizontally
+    </div>
+  </mat-tab>
+  <mat-tab label="handle">
+    <div
+      cdkDrag>
+      <div cdkDragHandle class="handle"></div>
+      I am Draggable - with handle
+    </div>
+  </mat-tab>
+  <mat-tab label="list">
+    <mat-list
+      (cdkDropListDropped)="onDrop($event)"
+      cdkDropList
+      role="list">
+      <mat-list-item *ngFor="let item of items" cdkDrag role="listitem">{{item}}</mat-list-item>
+    </mat-list>
+  </mat-tab>
+  <mat-tab label="complexList">
+    <section class="column-section">
+      <h2>First list - can not drag back</h2>
+      <mat-list
+        #list2="cdkDropList"
+        (cdkDropListDropped)="addToList($event)"
+        [cdkDropListConnectedTo]="[list3]"
+        [cdkDropListData]="items2"
+        [cdkDropListEnterPredicate]="isAllowed"
+        cdkDropList
+        role="list">
+        <mat-list-item *ngFor="let item of items2" cdkDrag role="listitem">{{item}}
+          <div *cdkDragPlaceholder>This is PLACEHOLDER</div>
+        </mat-list-item>
+      </mat-list>
+    </section>
+    <section class="column-section">
+      <h2>Second list</h2>
+      <mat-list
+        #list3="cdkDropList"
+        (cdkDropListDropped)="addToList($event)"
+        [cdkDropListConnectedTo]="[list2]"
+        [cdkDropListData]="items3"
+        cdkDropList
+        role="list">
+        <mat-list-item *ngFor="let item of items3" cdkDrag role="listitem">{{item}}
+          <div *cdkDragPreview>This is PREVIEW</div>
+        </mat-list-item>
+      </mat-list>
+    </section>
+  </mat-tab>
+</mat-tab-group>
